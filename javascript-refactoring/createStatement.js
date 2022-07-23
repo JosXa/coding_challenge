@@ -39,8 +39,8 @@ function createStatement(invoice, plays) {
 
             return {
                 total: current.total + item,
-                volumeCredits:
-                    current.volumeCredits +
+                credits:
+                    current.credits +
                     calculateVolumeCredits(playType, audience),
                 orders: {
                     ...current.orders,
@@ -48,7 +48,7 @@ function createStatement(invoice, plays) {
                 },
             };
         },
-        { total: 0, volumeCredits: 0, orders: {} }
+        { total: 0, credits: 0, orders: {} }
     );
 
     const parts = [`Statement for ${invoice.customer}`];
@@ -62,7 +62,7 @@ function createStatement(invoice, plays) {
     );
 
     parts.push(`  Amount owed is ${formatCurrency(summary.total / 100)}`);
-    parts.push(`  You earned ${summary.volumeCredits} credits`);
+    parts.push(`  You earned ${summary.credits} credits`);
     return parts.join("\n");
 }
 
@@ -82,7 +82,7 @@ const calculateOrderItem = (playType, audience) => {
                 (audience > 20 ? 10000 + 500 * (audience - 20) : 0)
             );
         default:
-            throw new Error(`unknown type: ${play.type}`);
+            throw new Error(`Unknown play type: ${playType}`);
     }
 };
 
