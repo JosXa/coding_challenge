@@ -1,3 +1,12 @@
+/*
+Stichworte:
+- Statische Typisierung. Fehler vermeiden, indem man Typen in JavaScript type annotations bzw. TypeScript angibt.
+- Separation of concerns. Die Teile, welche Berechnungen vornehmen (domain logic), strikt von der Formatierung der Ausgabe (presentation layer) trennen.
+- Encapsulation. Logik, die zusammengehört, ist in aufgabenspezifische Funktionen ausgelagern
+- Avoid muatability. Mutable state immer vermeiden, wenn möglich. Funktionalen Ansatz wählen um Zustand des Systems zu kapseln
+*/
+
+
 /**
  *
  * @param {
